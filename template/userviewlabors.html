@@ -1,0 +1,59 @@
+<style>
+    td,th{
+       padding:5px; 
+    }
+    </style>
+    {% extends 'userbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/userhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Work</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Labors for your work</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table border="1">
+                                <tr>
+                                   
+                                    <th>Global ID</th>
+                                    <th>Name</th>
+                                    <th>Photo</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.2}}</td>
+                                    <td>{{d.0}}</td>
+                                    <td><img src="../static{{d.1}}" height="150px" width="120px"></td>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                    </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    
+    <style>
+        
+        td,th{
+           padding:10px; 
+        }
+      </style>
+    <script>
+            msg="{{msg}}";
+            if(msg!="")
+              alert(msg);
+              
+            </script>
+    {% endblock %}
+    

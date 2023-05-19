@@ -1,0 +1,44 @@
+<style>
+    td,th{
+       padding:5px; 
+    }
+    </style>
+    {% extends 'adminbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/adminhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Search Labours</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">SEARCH LABOURS</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                    <form  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-grp-w3layouts">
+                            <input type="number" name="Gid" placeholder="Enter global id" required="" >
+                        </div>
+                        <div class="read mt-3">
+                            <button type="submit" class="btn">Search</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    <script>
+            msg="{{msg}}";
+            if(msg!="")
+              alert(msg);
+            </script>
+    {% endblock %}
+    

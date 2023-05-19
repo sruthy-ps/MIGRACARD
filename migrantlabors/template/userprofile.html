@@ -1,0 +1,44 @@
+{% extends 'userbase.html' %}	
+{% block content %}
+
+{% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+<section id="contractor" class="ab-info-main py-md-5 py-4">
+    <div class="container py-md-5 py-4">
+        <h3 class="tittle text-center mb-lg-5 mb-3">Profile</h3>
+        <div class="row contact-main-info mt-5">
+            <div class="col-md-7 contact-right">
+                {% if us  %}
+                <form  method="post">
+                  {% csrf_token %}
+                  <div class="form-grp-w3layouts">
+                    <input type="text"  name="Name" value="{{us.name}}" pattern="[a-zA-Z ]+"  required="" >
+                  </div>  
+                  
+                  <div class="form-grp-w3layouts">
+                    <input type="text" name="Contact" value="{{us.contact}}" pattern="[6789][0-9]{9}" required="" >
+                </div>
+             
+                 
+                    <div class="read mt-3">
+                        <button type="submit" class="btn">Update</button>
+                    </div>
+                </form>
+
+                {% endif %}
+            </div>
+           
+        </div>
+  
+        <div class="move-top-w3layouts text-center mt-3">
+          <a href="" class="move-top"> <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </section>
+  
+
+  {% endblock %}

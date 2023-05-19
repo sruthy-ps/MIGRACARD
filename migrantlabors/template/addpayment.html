@@ -1,0 +1,80 @@
+<style>
+    td,th{
+       padding:5px; 
+    }
+    </style>
+    {% extends 'policebase.html' %}	
+    {% block content %}
+    {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Payment</h3>
+            <div class="row contact-main-info mt-5"style="margin-left:30%">
+                <div class="col-md-7 contact-right">
+                    <form  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% if data %}
+                        
+                        
+                        <div class="form-grp-w3layouts">
+                            Amount:
+                            <input type="text" name="amount" class="form-control" value={{data.wrkamount}} readonly required>
+                         </div><br>
+                         <div class="form-grp-w3layouts">
+                            Payee:
+                            <input type="text" name="amount" class="form-control" value={{data.tcid.reqid.uid.name}} readonly required>
+                         </div><br>
+                         <div class="form-grp-w3layouts">
+                            <input type="text" name="card" class="form-control" placeholder="Card Number" maxlength="16" required>
+                         </div><br>
+                         <div class="form-grp-w3layouts">
+                            <input type="text" name="cvv" class="form-control" placeholder="CVV" maxlength="3" required>
+                         </div><br>
+                         <div class="form-grp-w3layouts">
+                            <select name="month">
+                                <option>JANUARY</option>
+                                <option>FEBRUARY</option>
+                                <option>MARCH</option>
+                                <option>APRIL</option>
+                                <option>MAY</option>
+                                <option>JUNE</option>
+                                <option>JULY</option>
+                                <option>AUGUST</option>
+                                <option>SEPTEMBER</option>
+                                <option>OCTOBER</option>
+                                <option>NOVEMBER</option>
+                                <option>DECEMBER</option>
+                              </select>
+                         </div>
+                         <div class="form-grp-w3layouts">
+                            <input type="text" name="year" class="form-control" maxlength="4"  placeholder="Expiry-Year" required>
+                         </div><br>
+            
+                        <div class="read mt-3">
+                            <button type="submit" class="btn">Pay</button>
+                        </div>
+                        {% endif %}
+                    </form>
+                </div>
+               
+            </div>
+            </div>
+    
+    
+        </div>
+    </section>
+    <script>
+            msg="{{msg}}";
+            if(msg!="")
+              alert(msg);
+            </script>
+    {% endblock %}
+    

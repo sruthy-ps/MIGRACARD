@@ -1,0 +1,75 @@
+<style>
+    td,th{
+       padding:5px; 
+    }
+    </style>
+    {% extends 'contractorbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/contractorhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Work</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Labors for your work</h3>
+            <div class="row contact-main-info mt-5">
+                
+                <div class="col-md-7 contact-right">
+                        <form  method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-grp-w3layouts">
+                                <select name="GID">
+                                    {% for i in labors %}
+                                    <option value="{{i.0}}">{{i.1}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="read mt-3">
+                                <button type="submit" class="btn">Submit</button>
+                            </div>
+                        </form>
+                        
+                    </form>
+                </div>
+                <div class="col-md-12 contact-center">
+                        <table border="1">
+                                <tr>
+                                   
+                                    <th>Global ID</th>
+                                    <th>Name</th>
+                                    <th>Photo</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.2}}</td>
+                                    <td>{{d.0}}</td>
+                                    <td><img src="../static{{d.1}}" height="150px" width="120px"></td>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                </div>
+            </div>
+    
+    
+        </div>
+    </section>
+    
+    <style>
+        
+        td,th{
+           padding:10px; 
+        }
+      </style>
+    <script>
+            msg="{{msg}}";
+            if(msg!="")
+              alert(msg);
+              
+            </script>
+    {% endblock %}
+    

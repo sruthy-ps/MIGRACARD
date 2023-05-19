@@ -1,0 +1,60 @@
+<style>
+    td,th{
+       padding:5px; 
+    }
+    </style>
+    {% extends 'contractorbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/contractorhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Home</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Profile</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-12 contact-center">
+                    <form  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for d in details %}
+                        <div class="form-grp-w3layouts">
+                            <input type="text" name="Name" placeholder="Name" required="" value="{{d.0}}" pattern="[a-zA-Z ]+">
+                        </div>
+                        
+                        
+                        <div class="form-grp-w3layouts">
+                            <input type="text" name="License" placeholder="License No" value="{{d.4}}" required="">
+                        </div>
+                        <div class="form-grp-w3layouts">
+                            <textarea name="address" placeholder="Address" required="">{{d.1}}</textarea>
+                        </div>
+                        <div class="form-grp-w3layouts">
+                            <input type="text" name="Phone" placeholder="Phone" required="" value="{{d.2}}" pattern="[6789][0-9]{9}">
+                        </div>
+                        <div class="form-grp-w3layouts">
+                                <input type="email" class="email" readonly name="Email" value="{{d.3}}" placeholder="Email" required="">
+                            </div>
+                            {% endfor %}
+                        <div class="read mt-3 text-center">
+                            <button type="submit" class="btn">Update</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    <script>
+            msg="{{msg}}";
+            if(msg!="")
+              alert(msg);
+            </script>
+    {% endblock %}
+    

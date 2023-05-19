@@ -1,0 +1,57 @@
+{% extends 'contractorbase.html' %}	
+{% block content %}
+
+{% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+<section class="ab-info-main py-md-5 py-4">
+    <div class="container py-md-5 py-4"style="margin-left:250px;">
+        <h3 class="tittle text-center mb-lg-5 mb-3"style="margin-left:-70px;color:blue;">Labors</h3>
+        <div class="row contact-main-info mt-5"style="margin-left:250px;">
+            <div class="col-md-7 contact-right">
+                {%  if l %}
+                <form  method="post">
+                    {% csrf_token %}
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Name" value="{{l.name}}" required="" pattern="[a-zA-Z ]+">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <textarea name="Address" placeholder="Address" required="">{{l.address}}</textarea>
+                    </div>
+               
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Place" value="{{l.place}}" required="">
+                    </div>
+                    
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Phone" value="{{l.contact}}" required="" pattern="[6789][0-9]{9}">
+                    </div>
+                    
+                   <div class="form-grp-w3layouts">
+                                Select police station
+                                <select name="station">
+                                        <option value="{{l.pid.id}}">{{l.pid.pname}}</option>
+                                        {% for d in police %}
+                                        <option value="{{d.id}}">{{d.pname}}</option>
+                                        {% endfor %}
+                                </select>
+                            </div>
+                    
+                    <div class="read mt-3">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
+                {%  endif %}
+            </div>
+            
+        </div>
+
+
+    </div>
+</section>
+
+
+{% endblock %}

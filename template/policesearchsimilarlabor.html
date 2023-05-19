@@ -1,0 +1,53 @@
+<style>
+    td,th{
+       padding:10px; 
+    }
+    </style>
+    {% extends 'adminbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/adminhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Search Result</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Search result</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table>
+                                
+                                {% for d in data %}
+                                
+                                    <tr><td colspan="2"><img src="../static{{d.9}}" height="250px" width="200px"></td></tr>
+                                    <tr><td>GLOBAL ID </td><td>: {{d.16}}</td></tr>
+                                    <tr><td>NAME </td><td>: {{d.2}}</td></tr>
+                                    <tr><td>ADDRESS </td><td>: {{d.3}}</td></tr>
+                                    <tr><td>PLACE </td><td>: {{d.4}}</td></tr>
+                                    <tr><td>CONTACT </td><td>: {{d.7}}</td></tr>
+                                    <tr><td>IDENTIFICATION MARK 1 </td><td>: {{d.5}}</td></tr>
+                                    <tr><td>IDENTIFICATION MARK 2 </td><td>: {{d.6}}</td></tr>
+                                    <tr><td>AADHAR </td><td>: {{d.8}}</td></tr>
+                                    <tr><td>HEIGHT </td><td>: {{d.10}}</td></tr>
+                                    <tr><td>WEIGHT </td><td>: {{d.11}}</td></tr>
+                                    <tr><td>COLOR COMPLEXION </td><td>: {{d.12}}</td></tr>
+                                    <tr><td>CONTRACTOR IN CHARGE </td><td>: {{d.17}}</td></tr>
+                                    <tr><td>CONTRACTOR CONTACT </td><td>: {{d.18}}</td></tr>
+                                    <tr><td>VIEW WORKS </td><td>: <a href="/policeworkdetails?id={{d.16}}">View Work details</a></td></tr>
+                                {% endfor %}
+                                </table>
+                    </form>
+                    <!-- <input type="submit" onClientClick="javascript:window.print();" value="Print"> -->
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    {% endblock %}
+    

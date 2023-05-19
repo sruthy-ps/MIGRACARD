@@ -1,0 +1,72 @@
+<style>
+    td,th{
+       text-align: center;
+       padding: 7px;
+       border: none;
+    }
+    th{
+        background-color:blue;
+        color:white;
+    }
+    table{
+        border:none;
+    }
+    </style>
+    {% extends 'adminbase.html' %}	
+    {% block content %}
+    
+    {% if messages %}
+    {% for msg in messages %}
+    <script>alert('{{msg}}');</script>
+    {% endfor %}
+    {% endif %}
+    
+    
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section  class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4" style="margin-left:70px;">
+            <h3 class="tittle text-center mb-lg-5 mb-3"style="margin-left:150px;color:blue">Police Station</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+
+                    {%  if p  %}
+                    <form  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-grp-w3layouts">
+                            <input type="text" name="Name" value="{{p.pname}}" required="" pattern="[a-zA-Z ]+">
+                        </div>
+                        
+                        
+                        <div class="form-grp-w3layouts">
+                            <input type="text" name="StationCode" value="{{p.pscode}}" required="">
+                        </div>
+                        <div class="form-grp-w3layouts">
+                            <textarea name="address" placeholder="Address"  required="">{{p.address}}</textarea>
+                        </div>
+                        <div class="form-grp-w3layouts">
+                                <input type="text" name="Circle" value="{{p.circle}}" pattern="[0-9a-zA-Z ]+" required="">
+                            </div>
+                        <div class="form-grp-w3layouts">
+                            <input type="text" name="Phone" value="{{p.contact}}" required="" pattern="[6789][0-9]{9}">
+                        </div>
+                       
+                        <div class="form-grp-w3layouts">
+                               <input type="radio"  name="status" value="1" checked>Active
+                               <input type="radio"  name="status" value="0">Inactive
+                         </div>  
+                        <div class="read mt-3">
+                            <button type="submit" class="btn">Update</button>
+                        </div>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+    
+    
+        </div>
+    </section>
+   
+    {% endblock %}
+    

@@ -1,0 +1,46 @@
+<style>
+        td,th{
+           padding:5px; 
+        }
+        </style>
+        {% extends 'userbase.html' %}	
+        {% block content %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/userhome">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Feedback</li>
+        </ol>
+        <!---->
+        <!--// mian-content -->
+        <!-- banner -->
+        <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+            <div class="container py-md-5 py-4">
+                <h3 class="tittle text-center mb-lg-5 mb-3">Feedback</h3>
+                <div class="row contact-main-info mt-5">
+                    <div class="col-md-7 contact-right">
+                        <form  method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-grp-w3layouts">
+                                <textarea name="Feedback" placeholder="Enter Feedback" required=""></textarea>
+                            </div>
+                            
+                            <div class="read mt-3">
+                                <button type="submit" class="btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+                
+        
+            </div>
+        </section>
+        <script>
+                msg="{{msg}}";
+                if(msg!="")
+                  alert(msg);
+                  
+                </script>
+        {% endblock %}
+        

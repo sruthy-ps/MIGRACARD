@@ -1,0 +1,67 @@
+<style>
+        td,th{
+           padding:5px; 
+        }
+        </style>
+        {% extends 'contractorbase.html' %}	
+        {% block content %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/contractorhome">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Work</li>
+        </ol>
+        <!---->
+        <!--// mian-content -->
+        <!-- banner -->
+        <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+            <div class="container py-md-5 py-4">
+                <h3 class="tittle text-center mb-lg-5 mb-3">Work update</h3>
+                <div class="row contact-main-info mt-5">
+                    <div class="col-md-7 contact-right">
+                        <form  method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for d in data %}
+                            <div class="form-grp-w3layouts">
+                                <input type="text" name="Amount" placeholder="Total amont" value="{{d.2}}" required="">
+                            </div>
+                            
+                            
+                            <div class="form-grp-w3layouts">
+                                Starting date:{{d.3}}<br><br> 
+                            </div>
+                            
+                            <div class="form-grp-w3layouts">
+                                Ending date:{{d.4}}<br>Update ending date: <input type="date" name="Edate" placeholder="Ending date" value="{{d.4}}" required="" >
+                            </div>
+                          
+                                <div class="form-grp-w3layouts">
+                                        <input type="text" name="Sstatus" placeholder="Status" readonly value="{{d.5}}" required="">
+                                </div>
+                                <div class="form-grp-w3layouts">
+                                        <input type="radio" name="Status" value="Committed" required="">Committed
+                                        <input type="radio" name="Status" value="Work on progress" required="">Work on progress
+                                        <input type="radio" name="Status" value="Almost complete" required="">Almost complete
+                                        <input type="radio" name="Status" value="Completed" required="">Completed
+                                        
+                                </div>
+                            <div class="read mt-3">
+                                <button type="submit" class="btn">Update</button>
+                            </div>
+                            {% endfor %}
+                        </form>
+                    </div>
+                   
+                </div>
+                </div>
+        
+        
+            </div>
+        </section>
+        <script>
+                msg="{{msg}}";
+                if(msg!="")
+                  alert(msg);
+                </script>
+        {% endblock %}
+        

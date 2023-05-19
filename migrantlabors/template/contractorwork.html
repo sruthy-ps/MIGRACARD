@@ -1,0 +1,79 @@
+<style>
+             td,th{
+   text-align: center;
+   padding: 7px;
+   border: none;
+}
+th{
+    background-color:blue;
+    color:white;
+}
+table{
+    border:none;
+    margin-left:50%;
+}
+    </style>
+    {% extends 'contractorbase.html' %}	
+    {% block content %}
+    {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            {% if data %}
+            <center><h3 style="color:blue;">Work</h3></center>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table border="1">
+                                <tr>
+                                   
+                                    <th>Work</th>
+                                    <th>Customer</th>
+                                    <th>Contact</th>
+                                    <th>Tender amount</th>
+                                    <th>Starting date</th>
+                                    <th>Ending date</th>
+                                    <th colspan="3">Status</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.tcid.reqid.reqdesc}}</td>
+                                    <td>{{d.tcid.reqid.uid.name}}</td>
+                                    <td>{{d.tcid.reqid.uid.contact}}</td>
+                                    <td>{{d.tcid.amount}}</td>
+                                    <td>{{d.tcid.sdate}}</td>
+                                    <td>{{d.tcid.edate}}</td>
+                                    <td>{{d.status}}</td>
+                                    <td><a href="/contractoraddlabors?id={{d.id}}">Add labors</a></td>    
+                                    <td><a href="/contractorupdatework?id={{d.id}}">Update work details</a></td>    
+                                </tr>
+                                {% endfor %}
+                                </table>
+                                {% else %}
+                                <center><h2>No Data Found</h2></center>
+                                {% endif %}
+                    </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    
+    <style>
+        
+        td,th{
+           padding:10px; 
+        }
+      </style>
+    
+    {% endblock %}
+    

@@ -1,0 +1,323 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+	<head>
+		<title>
+			Production Line Industrial Category Bootstrap Responsive Web Template |
+			Home :: W3layouts
+		</title>
+		<!-- Meta tag Keywords -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="UTF-8" />
+		<meta
+			name="keywords"
+			content="Production Line Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+		/>
+		<script>
+			addEventListener(
+				'load',
+				function () {
+					setTimeout(hideURLbar, 0);
+				},
+				false
+			);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+		<!-- //Meta tag Keywords -->
+
+		<!-- Custom-Files -->
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+		<!-- Bootstrap-Core-CSS -->
+		<link
+			rel="stylesheet"
+			href="{% static 'css/style.css' %}"
+			type="text/css"
+			media="all"
+		/>
+		<!-- Style-CSS -->
+		<!-- font-awesome-icons -->
+		<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+		<!-- //font-awesome-icons -->
+		<!-- /Fonts -->
+		<link
+			href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900"
+			rel="stylesheet"
+		/>
+		<link
+			href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
+			rel="stylesheet"
+		/>
+		<!-- //Fonts -->
+	</head>
+
+	<body>
+		<!-- mian-content -->
+		<div class="main-banner" id="home">
+			<!-- header -->
+			<header class="header">
+				<div class="container-fluid px-lg-5">
+					<!-- nav -->
+					<nav class="py-4 fixed-top">
+						<div id="logo">
+							<h1>
+			
+								
+							</h1>
+						</div>
+
+						<label for="drop" class="toggle">Menu</label>
+						<input type="checkbox" id="drop" />
+						<ul class="menu mt-2">
+							<li class="active"><a href="/">Home</a></li>
+							<li class="active"><a href="#login">Login</a></li>
+							<!-- <li>
+                            
+                            <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                            <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                            <input type="checkbox" id="drop-2" />
+                            <ul>
+                                
+                                <li><a href="gallery.html">Gallery</a></li>
+                                <li><a href="services.html">Services</a></li>
+                            </ul>
+                        </li> -->
+							<li class="active"><a href="#register">Registration</a></li>
+							<li class="active"><a href="#contractor">Contractor</a></li>
+						</ul>
+					</nav>
+					<!-- //nav -->
+				</div>
+			</header>
+			<!-- //header -->
+			<!--/banner-->
+			<div class="banner-info">
+				<h3>MIGRACARD</h3>
+				<!-- <p class="my-sm-4 my-3">We offer the most complete industrial solutions in the country, for the research, design and development of materials</p> -->
+				<div class="ban-buttons">
+					<!-- <a href="about.html" class="btn">Read More</a> -->
+				</div>
+			</div>
+			<!--// banner-inner -->
+		</div>
+		<!-- /hand-crafted -->
+
+		<section id="login" class="ab-info-main py-md-5 py-4">
+			<div class="container py-md-5 py-4">
+				<h3 class="tittle text-center mb-lg-5 mb-3">Login</h3>
+				<div class="row contact-main-info mt-5">
+					<div class="col-md-12 contact-center">
+						<form method="post" enctype="multipart/form-data" action="/login">
+							{% csrf_token %}
+							<div class="form-grp-w3layouts">
+								<input
+									type="email"
+									class="email"
+									name="Email"
+									placeholder="Username"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="password"
+									name="Password"
+									placeholder="Password"
+									required=""
+								/>
+							</div>
+							<div class="read text-center mt-3">
+								<a href="/login"
+									><button type="submit" class="btn">Login</button></a
+								>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="move-top-w3layouts text-center mt-3">
+					<a href="" class="move-top">
+						<span class="fa fa-angle-up mb-3" aria-hidden="true"></span
+					></a>
+				</div>
+			</div>
+		</section>
+		<hr />
+		<section id="register" class="ab-info-main py-md-5 py-4">
+			<div class="container py-md-5 py-4">
+				<h3 class="tittle text-center mb-lg-5 mb-3">Registration</h3>
+				<div class="row contact-main-info mt-5">
+					<div class="col-md-12 contact-center">
+						<form method="post" enctype="multipart/form-data" action="/userreg">
+							{% csrf_token %}
+							<div class="form-grp-w3layouts">
+								<input
+									type="text"
+									name="Name"
+									placeholder="Name"
+									pattern="[a-zA-Z ]+"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="text"
+									name="Aadhar"
+									placeholder="Aadhar number"
+									pattern="[0-9]{12}"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="text"
+									name="Contact"
+									placeholder="Contact number"
+									pattern="[6789][0-9]{9}"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="email"
+									class="email"
+									name="Email"
+									placeholder="Email id"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="password"
+									name="Password"
+									placeholder="Password"
+									required=""
+									pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+								/>
+							</div>
+							<div class="read text-center mt-3">
+								<button type="submit" class="btn">Register</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="move-top-w3layouts text-center mt-3">
+					<a href="" class="move-top">
+						<span class="fa fa-angle-up mb-3" aria-hidden="true"></span
+					></a>
+				</div>
+			</div>
+		</section>
+		<hr />
+		<section id="contractor" class="ab-info-main py-md-5 py-4">
+			<div class="container py-md-5 py-4">
+				<h3 class="tittle text-center mb-lg-5 mb-3">Contractor registration</h3>
+				<div class="row contact-main-info mt-5">
+					<div class="col-md-12 contact-center">
+						<form
+							method="post"
+							enctype="multipart/form-data"
+							action="contractorreg"
+						>
+							{% csrf_token %}
+							<div class="form-grp-w3layouts">
+								<input
+									type="text"
+									name="Name"
+									placeholder="Name"
+									pattern="[a-zA-Z ]+"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<textarea
+									name="address"
+									placeholder="Address"
+									required=""
+								></textarea>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="text"
+									name="Contact"
+									placeholder="Contact number"
+									pattern="[6789][0-9]{9}"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="text"
+									name="License"
+									placeholder="License Numbr"
+									required=""
+									required
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								upload certificate
+								<input
+									type="file"
+									name="File"
+									placeholder="Upload certificate"
+									required=""
+									required
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="email"
+									class="email"
+									name="Email"
+									placeholder="Email id"
+									required=""
+								/>
+							</div>
+							<div class="form-grp-w3layouts">
+								<input
+									type="password"
+									name="Password"
+									placeholder="Password"
+									required=""
+								/>
+							</div>
+							<div class="read text-center mt-3">
+								<button type="submit" class="btn">Register</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="move-top-w3layouts text-center mt-3">
+					<a href="" class="move-top">
+						<span class="fa fa-angle-up mb-3" aria-hidden="true"></span
+					></a>
+				</div>
+			</div>
+		</section>
+		<script>
+			var msg = '{{msg}}';
+			if (msg != '') alert(msg);
+		</script>
+		<!--footer -->
+
+		<!-- //footer -->
+
+		<!-- copyright -->
+		<div class="cpy-right text-center py-3">
+			<p class="">
+				© 2019 Production Line. All rights reserved | Design by
+				<a href="http://w3layouts.com"> W3layouts.</a>
+			</p>
+		</div>
+		<!-- //copyright -->
+	</body>
+</html>

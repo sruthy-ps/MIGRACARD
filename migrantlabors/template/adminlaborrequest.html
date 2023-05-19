@@ -1,0 +1,69 @@
+<style>
+              td,th{
+   text-align: center;
+   padding: 7px;
+   border: none;
+}
+th{
+    background-color:blue;
+    color:white;
+}
+table{
+    border:none;
+    margin-left:60%;
+}
+    </style>
+    {% extends 'adminbase.html' %}	
+    {% block content %}
+
+    {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            {% if data %}
+            <center><h3 style="color:blue;">Labors Request</h3></center>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table border="1">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Photo</th>
+                                    <th>Contractor</th>
+                                    <th>Requested date</th>
+                                    <th colspan="2">Status</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.lid.id}}</td>
+                                    <td>{{d.lid.name}}</td>
+                                  
+                                    <td><img src="static/media/{{d.lid.photo}}" height="100px" width="100px"></td>
+                                    <td>{{d.conid.name}}</td>
+                                    <td>{{d.reqdate}}</td>
+                                    <td>{{d.status}}</td>
+                                    <td><a style="color: blue;" href="/adminapproverequest?id={{d.id}}&status=Approved">Approve</a>
+                                        <a style="color: blue;" href="/adminapproverequest?id={{d.id}}&status=Rejected">Reject</a></td>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                                {% else %}
+                                <center><h2>No Data Found</h2></center>
+                                {% endif %}
+                    </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    {% endblock %}
+    

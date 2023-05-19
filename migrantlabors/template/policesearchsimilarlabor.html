@@ -1,0 +1,54 @@
+<style>
+    td,th{
+       padding:10px; 
+    }
+    </style>
+    {% extends 'policebase.html' %}	
+    {% block content %}
+    {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+    
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Search result</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table>
+                                
+                                {% for d in data %}
+                                
+                                    <tr><td colspan="2"><img src="static/media/{{d.labid.photo}}" height="250px" width="200px"></td></tr>
+                                    <tr><td>GLOBAL ID </td><td>: {{d.id}}</td></tr>
+                                    <tr><td>NAME </td><td>: {{d.labid.name}}</td></tr>
+                                    <tr><td>ADDRESS </td><td>: {{d.labid.address}}</td></tr>
+                                    <tr><td>PLACE </td><td>: {{d.labid.place}}</td></tr>
+                                    <tr><td>CONTACT </td><td>: {{d.labid.contact}}</td></tr>
+                                    <tr><td>IDENTIFICATION MARK 1 </td><td>: {{d.labid.idmark1}}</td></tr>
+                                    <tr><td>IDENTIFICATION MARK 2 </td><td>: {{d.labid.idmark2}}</td></tr>
+                                    <tr><td>AADHAR </td><td>: {{d.labid.aadhar}}</td></tr>
+                                    <tr><td>HEIGHT </td><td>: {{d.labid.height}}</td></tr>
+                                    <tr><td>WEIGHT </td><td>: {{d.labid.weight}}</td></tr>
+                                    <tr><td>COLOR COMPLEXION </td><td>: {{d.labid.color}}</td></tr>
+                                    <tr><td>CONTRACTOR IN CHARGE </td><td>: {{d.labid.cid.name}}</td></tr>
+                                    <tr><td>CONTRACTOR CONTACT </td><td>: {{d.labid.cid.phone}}</td></tr>
+                                    <tr><td>VIEW WORKS </td><td>: <a href="/policeworkdetails?id={{d.id}}">View Work details</a></td></tr><br>
+                                {% endfor %}
+                                </table>
+                    </form>
+                    <!-- <input type="submit" onClientClick="javascript:window.print();" value="Print"> -->
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    {% endblock %}
+    

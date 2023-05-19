@@ -1,0 +1,59 @@
+<style>
+    td,th{
+       padding:10px; 
+    }
+    </style>
+    {% extends 'policebase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/policehome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Labor Details</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Labor Details</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table>
+                                
+                                {% if d %}
+                                
+                                    <tr><td colspan="2"><img src="static/media/{{d.photo}}" height="250px" width="200px"></td></tr>
+                                    <tr><td>ID </td><td>: {{d.id}}</td></tr>
+                                    <tr><td>NAME </td><td>: {{d.name}}</td></tr>
+                                    <tr><td>ADDRESS </td><td>: {{d.address}}</td></tr>
+                                    <tr><td>PLACE </td><td>: {{d.place}}</td></tr>
+                                    <tr><td>CONTACT </td><td>: {{d.contact}}</td></tr>
+                                    <tr><td>IDENTIFICATION MARK 1 </td><td>: {{d.idmark1}}</td></tr>
+                                    <tr><td>IDENTIFICATION MARK 2 </td><td>: {{d.idmark2}}</td></tr>
+                                    <tr><td>AADHAR </td><td>: {{d.aadhar}}</td></tr>
+                                    <tr><td>HEIGHT </td><td>: {{d.height}}</td></tr>
+                                    <tr><td>WEIGHT </td><td>: {{d.weight}}</td></tr>
+                                    <tr><td>COLOR COMPLEXION </td><td>: {{d.color}}</td></tr>
+                                    <tr><td>POLICE STATION IN CHARGE </td><td>: {{d.pid.pname}}</td></tr>
+                            
+                                {% endif %}
+                                </table>
+                    </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    {% if d  %}
+    <div style="margin-left: 100px; margin-bottom:50px ;">
+        <a style="color: red;" href="/policeapprovelabors?id={{d.id}}&status=rejected"><h4>Reject</h4></a>
+    </div>
+    <div style="margin-left: 250px; margin-bottom:50px ; margin-top: -80px;">
+        <a style="color: green;" href="/policeapprovelabors?id={{d.id}}&status=approved"><h4>Approve</h4></a>
+    </div>
+    {% endif %}
+    {% endblock %}
+    

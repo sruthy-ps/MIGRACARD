@@ -1,0 +1,65 @@
+<style>
+    td,th{
+text-align: center;
+padding: 7px;
+border: none;
+}
+th{
+background-color:blue;
+color:white;
+}
+table{
+border:none;
+margin-left:50%;
+}
+   </style>
+   {% extends 'adminbase.html' %}	
+   {% block content %}
+   {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+  
+   <!---->
+   <!--// mian-content -->
+   <!-- banner -->
+   <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+       <div class="container py-md-5 py-4">
+           {% if data %}
+           <h3 class="tittle text-center mb-lg-5 mb-3"style="margin-left:-70px;color:blue;">Users</h3>
+           <div class="row contact-main-info mt-5">
+               <div class="col-md-7 contact-right">
+                   
+                       <table border="1">
+                               <tr>
+                                   <th>ID</th>
+                                   <th>Name</th>
+                                   <th>Aadhar</th>
+                                   <th>Email</th>
+                                   <th>Contact</th>
+                               </tr>
+                               {% for d in data %}
+                               <tr>
+                                   <td>{{d.id}}</td>
+                                   <td>{{d.name}}</td>
+                                   <td>{{d.aadhar}}</td>
+                                   <td>{{d.email}}</td>
+                                   <td>{{d.contact}}</td>
+                               </tr>
+                               {% endfor %}
+                               </table>
+                               {% else %}
+                               <center><h2>No Data Found</h2></center>
+                               {% endif %}
+                   </form>
+               </div>
+               
+           </div>
+   
+   
+       </div>
+   </section>
+   {% endblock %}
+   

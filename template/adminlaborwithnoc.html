@@ -1,0 +1,57 @@
+<style>
+    td,th{
+       padding:10px; 
+    }
+    </style>
+    {% extends 'adminbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/adminhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Labors With NOC</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4"><h3>Labors with NOC</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table border="1">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Place</th>
+                                    <th>Photo</th>
+                                    <th colspan="3s">Contact</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.0}}</td>
+                                    <td>{{d.2}}</td>
+                                    <td>{{d.3}}</td>
+                                    <td>{{d.4}}</td>
+                                    <td><img src="../static{{d.9}}" height="100px" width="100px"></td>
+                                    <td>{{d.7}}</td>
+                                    <td><a style="color: blue;" href="/adminchoosecontractor?id={{d.0}}">Generate Card</a></td>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                    </form>
+                </div>
+
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    <script>
+            msg="{{msg}}";
+            if(msg!="")
+              alert(msg);
+    </script>
+    {% endblock %}
+    

@@ -1,0 +1,73 @@
+<style>
+    td,th{
+       padding:5px; 
+    }
+    </style>
+    {% extends 'contractorbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/contractorhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Work Request</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Work Place</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <div id="map"></div>
+                    {% for i in d %}
+                     <input type="text" id="l1" style="visibility: hidden;" value="{{i.0}}" >           
+                     
+                     <input type="text" id="l2" style="visibility: hidden;" value="{{i.1}}" >           
+                     {% endfor %}
+                     
+                </div>
+                
+            </div>
+            
+    
+        </div>
+    </section>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 500px;  /* The height is 400 pixels */
+        width: 1150px;;  /* The width is the width of the web page */
+       }
+    </style>
+      </style>
+      <script>
+
+        // Initialize and add the map
+        function initMap() {
+            debugger;
+            var l1=parseFloat(document.getElementById("l1").value);
+            var l2=parseFloat(document.getElementById("l2").value);
+          // The location of Uluru
+          var uluru = {lat: l1, lng: l2};
+          // The map, centered at Uluru
+          var map = new google.maps.Map(
+              document.getElementById('map'), {zoom: 15, center: uluru});
+          // The marker, positioned at Uluru
+          var marker = new google.maps.Marker({position: uluru, map: map});
+        }
+            </script>
+            <!--Load the API from the specified URL
+            * The async attribute allows the browser to render the page while the API loads
+            * The key parameter will contain your own API key (which is not needed for this tutorial)
+            * The callback parameter executes the initMap() function
+            -->
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRhhnbNUXPX9_JYKnroSAex2-1KFaSmwQ&callback=initMap">
+            </script>
+               
+    {% endblock %}
+    

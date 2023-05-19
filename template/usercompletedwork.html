@@ -1,0 +1,63 @@
+<style>
+        td,th{
+           padding:5px; 
+        }
+        </style>
+        {% extends 'userbase.html' %}	
+        {% block content %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/userhome">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Work</li>
+        </ol>
+        <!---->
+        <!--// mian-content -->
+        <!-- banner -->
+        <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+            <div class="container py-md-5 py-4">
+                <h3 class="tittle text-center mb-lg-5 mb-3">Work</h3>
+                <div class="row contact-main-info mt-5">
+                    <div class="col-md-7 contact-right">
+                            <table border="1">
+                                    <tr>
+                                       
+                                        <th>Work</th>
+                                        <th>Contractor</th>
+                                        <th>Contact</th>
+                                        <th>Tender amount</th>
+                                        <th>Starting date</th>
+                                        <th>Ending date</th>
+                                        <th colspan="2">Status</th>
+                                    </tr>
+                                    {% for d in data %}
+                                    <tr>
+                                        <td>{{d.4}}</td>
+                                        <td>{{d.5}}</td>
+                                        <td>{{d.6}}</td>
+                                        <td>{{d.2}}</td>
+                                        <td>{{d.0}}</td>
+                                        <td>{{d.1}}</td>
+                                        <td>{{d.3}}</td>
+                                        <td><a href="/useraddfeedback?id={{d.7}}">Add feedback</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                    </table>
+                        </form>
+                    </div>
+                    
+                </div>
+        
+        
+            </div>
+        </section>
+        
+        <style>
+            
+            td,th{
+               padding:10px; 
+            }
+          </style>
+        
+        {% endblock %}
+        

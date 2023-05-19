@@ -1,0 +1,42 @@
+<style>
+    td,th{
+       padding:10px; 
+    }
+    </style>
+    {% extends 'adminbase.html' %}	
+    {% block content %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/adminhome">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Labors With NOC</li>
+    </ol>
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4"><h3>Choose contractor</h3>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <form  method="post" enctype="multipart/form-data" action="/admingeneratecard">
+                            {% csrf_token %}
+                        <div class="form-grp-w3layouts">
+                       <select name="contractor">
+                                {% for d in data %}
+                                <option value="{{d.3}}">{{d.0}}</option>
+                                {% endfor %}
+                            </select>  
+                        </div>    
+                        <div class="read mt-3">
+                                <button type="submit" class="btn">Select</button>
+                            </div>
+                        </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    {% endblock %}
+    

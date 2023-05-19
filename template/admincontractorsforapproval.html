@@ -1,0 +1,89 @@
+<style>
+        td,th{
+           padding:10px; 
+        }
+        </style>
+        {% extends 'adminbase.html' %}	
+        {% block content %}
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/adminhome">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Contractors</li>
+        </ol>
+        <!---->
+        <!--// mian-content -->
+        <!-- banner -->
+        <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+            <div class="container py-md-5 py-4">
+                <h3 class="tittle text-center mb-lg-5 mb-3">Contractors for approval</h3>
+                <div class="row contact-main-info mt-5">
+                    <div class="col-md-12 contact-right">
+                            <table border="1" class="col-12">
+                                    <tr>
+                                       
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>License</th>
+                                        <th>Email</th>
+                                        <th>Certificate</th>
+                                        <th colspan="3">Contact</th>
+                                    </tr>
+                                    {% for d in data %}
+                                    <tr>
+                                        <td>{{d.0}}</td>
+                                        <td>{{d.1}}</td>
+                                        <td>{{d.4}}</td>
+                                        <td>{{d.3}}</td>
+                                        <td><img src="../static{{d.5}}" height="150px" width="150px"></a></td>
+                                        <td>{{d.2}}</td>
+                                        <td><a style="color: blue;" href="/adminapprovecontractor?id={{d.3}}&status=1">Approve</a></td>
+                                        <td><a style="color: blue;" href="/adminapprovecontractor?id={{d.3}}&status=-1">Reject</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                    </table>
+                        </form>
+                    </div>
+                    
+                </div>
+        
+        
+            </div>
+        </section>
+        <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+            <div class="container py-md-5 py-4">
+                <h3 class="tittle text-center mb-lg-5 mb-3">Approved Contractors</h3>
+                <div class="row contact-main-info mt-5">
+                    <div class="col-md-12 contact-right">
+                            <table border="1" class="col-12">
+                                    <tr>
+                                       
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>License</th>
+                                        <th>Email</th>
+                                        <th>Certificate</th>
+                                        <th>Contact</th>
+                                    </tr>
+                                    {% for d in data1 %}
+                                    <tr>
+                                        <td>{{d.0}}</td>
+                                        <td>{{d.1}}</td>
+                                        <td>{{d.4}}</td>
+                                        <td>{{d.3}}</td>
+                                        <td><img src="../static{{d.5}}" height="150px" width="150px"></a></td>
+                                        <td>{{d.2}}</td>
+                                       
+                                    </tr>
+                                    {% endfor %}
+                                    </table>
+                        </form>
+                    </div>
+                    
+                </div>
+        
+        
+            </div>
+        </section>
+        {% endblock %}
+        

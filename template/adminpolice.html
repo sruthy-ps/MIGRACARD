@@ -1,0 +1,117 @@
+<style>
+	td,
+	th {
+		padding: 5px;
+	}
+</style>
+{% extends 'adminbase.html' %} {% block content %}
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="/adminhome">Home</a>
+	</li>
+	<li class="breadcrumb-item active">Police</li>
+</ol>
+<!---->
+<!--// mian-content -->
+<!-- banner -->
+<section style="margin-left: -50px" class="ab-info-main py-md-5 py-4">
+	<div class="container py-md-5 py-4">
+		<h3 class="tittle text-center mb-lg-5 mb-3">Police Station</h3>
+		<div class="row contact-main-info mt-5">
+			<div class="col-md-12 contact-center">
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-grp-w3layouts">
+						<input
+							type="text"
+							name="Name"
+							placeholder="Name"
+							required=""
+							pattern="[a-zA-Z ]+"
+						/>
+					</div>
+
+					<div class="form-grp-w3layouts">
+						<input
+							type="text"
+							name="StationCode"
+							placeholder="Station Code"
+							required=""
+						/>
+					</div>
+					<div class="form-grp-w3layouts">
+						<textarea
+							name="address"
+							placeholder="Address"
+							required=""
+						></textarea>
+					</div>
+					<div class="form-grp-w3layouts">
+						<input
+							type="text"
+							name="Circle"
+							placeholder="Circle"
+							pattern="[0-9a-zA-Z ]+"
+							required=""
+						/>
+					</div>
+					<div class="form-grp-w3layouts">
+						<input
+							type="text"
+							name="Phone"
+							placeholder="Phone"
+							required=""
+							pattern="[6789][0-9]{9}"
+						/>
+					</div>
+					<div class="form-grp-w3layouts">
+						<input
+							type="email"
+							class="email"
+							name="Email"
+							placeholder="Email"
+							required=""
+						/>
+					</div>
+
+					<div class="read mt-3">
+						<button type="submit" class="btn">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row contact-main-info mt-5">
+			<div class="col-md-12">
+				<table border="1" class="col-12">
+					<tr>
+						<th>Name</th>
+						<th>Station Code</th>
+						<th>Address</th>
+						<th>Circle</th>
+						<th>Email</th>
+						<th colspan="2">Contact</th>
+					</tr>
+					{% for d in police %}
+					<tr>
+						<td>{{d.0}}</td>
+						<td>{{d.1}}</td>
+						<td>{{d.2}}</td>
+						<td>{{d.3}}</td>
+						<td>{{d.5}}</td>
+						<td>{{d.4}}</td>
+
+						<td>
+							<a style="color: blue" href="/delpolice?id={{d.5}}">Delete</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	msg = '{{msg}}';
+	if (msg != '') alert(msg);
+</script>
+{% endblock %}

@@ -1,0 +1,68 @@
+<style>
+td,th{
+   text-align: center;
+   padding: 7px;
+   border: none;
+}
+th{
+    background-color:blue;
+    color:white;
+}
+table{
+    border:none;
+    margin-left:60%;
+}
+    </style>
+    {% extends 'policebase.html' %}	
+    {% block content %}
+    {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            {% if data %}
+            <center><h3 style="color:blue;">Complaints</h3></center>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table border="1">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Complaint</th>
+                                    <th>Estimated Height</th>
+                                    <th>Estimated Weight</th>
+                                    <th colspan="3">Place of crime</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.uid.name}}</td>
+                                    <td>{{d.uid.contact}}</td>
+                                    <td>{{d.complaint}}</td>
+                                    <td>{{d.clheight}}</td>
+                                    <td>{{d.clweight}}</td>
+                                    <td>{{d.place}}</td>
+                                    <td><a style="color: blue;" href="/policesearchsimilarlabor?height={{d.clheight}}&weight={{d.clweight}}">Search similar labor</a></td>
+                                    <td><a style="color: blue;" href="/policeupdatecomplaint?id={{d.id}}">Update Complaint</a></td>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                                {% else %}
+                                <center><h2>No Data Found</h2></center>
+                                {% endif %}
+                    
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    
+    {% endblock %}
+    

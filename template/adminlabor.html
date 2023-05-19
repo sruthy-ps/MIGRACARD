@@ -1,0 +1,102 @@
+{% extends 'adminbase.html' %}	
+{% block content %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/adminhome">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Labors</li>
+</ol>
+<!---->
+<!--// mian-content -->
+<!-- banner -->
+<section class="ab-info-main py-md-5 py-4">
+    <div class="container py-md-5 py-4">
+        <h3 class="tittle text-center mb-lg-5 mb-3">Labors</h3>
+        <div class="row contact-main-info mt-5">
+            <div class="col-md-12 contact-center">
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Name" placeholder="Name" required="" pattern="[a-zA-Z ]+">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <textarea name="Address" placeholder="Address" required=""></textarea>
+                    </div>
+                    <!-- <div class="form-grp-w3layouts">
+                        <input type="email" class="email" name="Email" placeholder="Email" required="">
+                    </div> -->
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Place" placeholder="Place" required="">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <textarea name="Id1" placeholder="Identification Mark 1" required=""></textarea>
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <textarea name="Id2" placeholder="Identification Mark 2" required=""></textarea>
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Phone" placeholder="Phone" required="" pattern="[6789][0-9]{9}">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Aadhar" placeholder="Aadhar No" required="" pattern="[0-9]{12}">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        Upload photo
+                        <input type="file" name="Photo" placeholder="Upload Photo" required="">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        Upload Signature
+                        <input type="file" name="Sign" placeholder="Upload Signature" required="">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        Upload aadhar
+                        <input type="file" name="Afile" placeholder="Upload Aadhar" required="">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Height" placeholder="Height" required="" pattern="[0-9]{3}">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="Weight" placeholder="Weight" required="" pattern="[0-9]{2}">
+                    </div>
+                    <div class="form-grp-w3layouts">
+                        Color Complexion
+                        <select name="Color">
+                            <option>Fair</option>
+                            <option>Medium</option>
+                            <option>Dark</option>
+                        </select>
+                    </div>
+                    <div class="form-grp-w3layouts">
+                            <textarea name="Disease" placeholder="Description of disease(If any)" required=""></textarea>
+                        </div>
+                    <div class="form-grp-w3layouts">
+                                Select police station
+                                <select name="Station">
+                                        {% for d in police %}
+                                        <option value="{{d.5}}">{{d.0}}</option>
+                                        {% endfor %}
+                                </select>
+                            </div>
+                    <div class="form-grp-w3layouts">
+                        <input type="text" name="work" placeholder="Prefered field of work" required="">
+                    </div>
+                    <div class="read mt-3 text-center">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+
+
+    </div>
+</section>
+<script>
+        msg="{{msg}}";
+        if(msg!="")
+          alert(msg);
+        </script>
+        <div style="margin-left: 250px; margin-bottom:50px ;">
+            <a href="/adminviewreglabors"><h4>View registered labors</h4></a>
+        </div>
+{% endblock %}

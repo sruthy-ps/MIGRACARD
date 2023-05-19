@@ -1,0 +1,70 @@
+<style>
+          td,th{
+   text-align: center;
+   padding: 7px;
+   border: none;
+}
+th{
+    background-color:blue;
+    color:white;
+}
+table{
+    border:none;
+    margin-left:50%;
+}
+    </style>
+    {% extends 'contractorbase.html' %}	
+    {% block content %}
+    {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+ 
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            {% if data %}
+            <center><h3 style="color:blue;">Labors Request</h3></center>
+            <div class="row contact-main-info mt-5">
+                <div class="col-md-7 contact-right">
+                        <table border="1">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Place</th>
+                                    <th>Photo</th>
+                                    <th>Contact</th>
+                                    <th>Requested date</th>
+                                    <th>Status</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.lid.id}}</td>
+                                    <td>{{d.lid.name}}</td>
+                                    <td>{{d.lid.address}}</td>
+                                    <td>{{d.lid.place}}</td>
+                                    <td><img src="static/media/{{d.lid.photo}}" height="100px" width="100px"></td>
+                                    <td>{{d.lid.contact}}</td>
+                                    <td>{{d.reqdate}}</td>
+                                    <td>{{d.status}}</td>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                                {% else %}
+                                <center><h2>No Data Found</h2></center>
+                                {% endif %}
+                    </form>
+                </div>
+                
+            </div>
+    
+    
+        </div>
+    </section>
+    {% endblock %}
+    

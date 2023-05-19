@@ -1,0 +1,86 @@
+<style>
+           td,th{
+   text-align: center;
+   padding: 7px;
+   border: none;
+}
+th{
+    background-color:blue;
+    color:white;
+}
+table{
+    border:none;
+    
+}
+    </style>
+    {% extends 'contractorbase.html' %}	
+    {% block content %}
+    {% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}');</script>
+{% endfor %}
+{% endif %}
+
+    
+    <!---->
+    <!--// mian-content -->
+    <!-- banner -->
+    <section style="margin-left:-50px;" class="ab-info-main py-md-5 py-4">
+        <div class="container py-md-5 py-4">
+            <h3 class="tittle text-center mb-lg-5 mb-3">Labors for your work</h3>
+            <div class="row contact-main-info mt-5">
+                
+                <div class="col-md-7 contact-right">
+                        <form  method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-grp-w3layouts">
+                                <select name="GID">
+                                    {% for i in labors %}
+                                    <option value="{{i.id}}">{{i.labid.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="read mt-3">
+                                <button type="submit" class="btn">Submit</button>
+                            </div>
+                        </form>
+                        
+                    </form>
+                </div>
+                <div class="col-md-5 contact-left">
+                        <table border="1">
+                                <tr>
+                                   
+                                    <th>Global ID</th>
+                                    <th>Name</th>
+                                    <th>Photo</th>
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td>{{d.glid.id}}</td>
+                                    <td>{{d.glid.labid.name}}</td>
+                                    <td><img src="static/media/{{d.glid.labid.photo}}" height="150px" width="120px"></td>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                </div>
+            </div>
+    
+    
+        </div>
+    </section>
+    
+    <style>
+        
+        td,th{
+           padding:10px; 
+        }
+      </style>
+    <script>
+            msg="{{msg}}";
+            if(msg!="")
+              alert(msg);
+              
+            </script>
+    {% endblock %}
+    
